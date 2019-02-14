@@ -1,4 +1,4 @@
-
+"use strict";
 /*
    New Perspectives on HTML5 and CSS3, 7th Edition
    Tutorial 9
@@ -13,28 +13,16 @@
    student union.
 
 */
-
-
+var thisDate = new Date('October 12, 2018'); // this is to make the real date.
+var dateString = thisDate.toLocaleString(); // to locale string is to make it come up with 
+var dateHTML = '<h2>' + dateString + '</h2>'; //this is to make the datestring come in here with every value
+var thisDay = thisDate.getDay(); //this is to get the day from the date using the method getDay();
+var eventHTML = getEvent(thisDay);
+document.getElementById('unionToday').insertAdjacentHTML('beforeend', dateHTML + eventHTML); //this gets the titles in there by adding unionToday and insertAdjacentHTML where it calls in the variables for the code. beforeend puts the information at the top of the code.
 
 function getEvent(day) {
-   var eventHTML;
-   switch (day) {
-      case 0: // Sunday Events
-      eventHTML = "<dl> \
-         <dt>Highlights from the Bridger Art Collection</dt> \
-         <dd><p>An exhibition from over 60 items in the BC permanent collection.</p> \
-             <p><strong>Location:</strong> Room A414</p> \
-             <p><strong>Time:</strong> 12 am &ndash; 4 pm</p> \
-             <p><strong>Cost:</strong> free</p> \
-         </dd> \
-         <dt>Bridger Starlight Cinema</dt> \
-         <dd><p>Recent, diverse, and provocative films straight from the art house. 35mm.</p> \
-             <p><strong>Location:</strong> Fredric Whyte Play Circle</p> \
-             <p><strong>Time:</strong> 7 pm &ndash 10 pm</p> \
-             <p><strong>Cost:</strong> $3.75 MWU students, Union members, Union staff. $4.25 all others</p> \
-         </dd> \
-      </dl>";
-      break;
+    var eventHTML;
+    switch (day) {
       case 1: // Monday Events
       eventHTML = "<dl> \
          <dt>Monday Billiards</dt> \
@@ -170,7 +158,6 @@ function getEvent(day) {
          </dd> \
       </dl>";
       break;      
-   }
-   
+    }
    return eventHTML
 }
